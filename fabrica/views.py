@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Tareas
 from django.http import HttpResponse
 from django.contrib import messages 
-from .forms import TareaForm,FabricaForm,CostureraForm
+from .forms import TareaForm,FabricaForm,CostureraForm, Costureras
 
 
 def crear_costurera(request):
@@ -18,6 +18,13 @@ def crear_costurera(request):
     # Si el formulario se ha enviado con éxito o es una solicitud GET, 
     # renderiza un nuevo formulario limpio
     return render(request, 'crear_costurera.html', {'form': form})
+  
+def eliminar_costurera(request, identificacion):
+    costurera = get_object_or_404(Costureras, identificacion=identificacion)
+    if request.method == 'POST':
+        costurera.delete()
+      ## return redirect('lista_costureras')  # Redirige a la lista de costureras después de eliminar
+    return render(request, 'eliminar_costurera.html', {'costurera': costurera})
 
 def crear_fabrica(request):
     if request.method == 'POST':
