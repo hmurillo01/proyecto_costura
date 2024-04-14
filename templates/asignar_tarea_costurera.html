@@ -1,0 +1,23 @@
+<!-- En tu archivo asignar_tarea_costurera.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignar Tarea a Costurera</title>
+</head>
+<body>
+    <h1>Asignar Tarea a Costurera</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_costurera">Seleccionar Costurera:</label>
+        <select name="id_costurera" id="id_costurera">
+            {% for costurera in costureras %}
+                <option value="{{ costurera.identificacion }}">{{ costurera.nombre }} {{ costurera.apellido }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Asignar</button>
+    </form>
+</body>
+</html>

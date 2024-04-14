@@ -1,0 +1,21 @@
+<!-- En tu archivo lista_tareas.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+    <ul>
+        {% for tarea in tareas %}
+            <li><a href="{% url 'detalle_tarea' tarea.id %}">{{ tarea.descripcion }}</a></li>
+        {% empty %}
+            <li>No hay tareas disponibles.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_tarea' %}">Crear Nueva Tarea</a>
+</body>
+</html>
