@@ -2,8 +2,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Tareas
 from django.http import HttpResponse
 from django.contrib import messages 
-from .forms import TareaForm,FabricaForm,CostureraForm, Costureras
+from django.contrib.auth.views import LoginView
+from .forms import TareaForm,FabricaForm,EstadoForm,CostureraForm, Costureras
 
+
+class CustomLoginView(LoginView):
+    template_name = 'login.html'  # Nombre de la plantilla de inicio de sesión personalizada
 
 def crear_costurera(request):
     if request.method == 'POST':
@@ -36,6 +40,17 @@ def crear_fabrica(request):
         form = FabricaForm()
     return render(request, 'crear_fabrica.html', {'form': form})
 
+def crear_estado(request):
+    if request.method == 'POST':
+        form = EstadoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Redirigir a alguna página de éxito o a la lista de estados
+           # return redirect('lista_estados')  # Ajusta 'lista_estados' a la URL de tu lista de estados
+    else:
+        form = EstadoForm()
+    return render(request, 'crear_estado.html', {'form': form})
+
 def lista_tareas(request):
     tareas = Tareas.objects.all()
     return render(request, 'lista_tareas.html', {'tareas': tareas})
@@ -60,7 +75,7 @@ def modificar_tarea(request, id):
         form = TareaForm(request.POST, instance=tarea)
         if form.is_valid():
             form.save()
-            return redirect('detalle_tarea', id=id)
+            return redirect('lista_tareas')  # Redireccionar a la lista de tareas
     else:
         form = TareaForm(instance=tarea)
     return render(request, 'modificar_tarea.html', {'form': form})
@@ -69,6 +84,8 @@ def eliminar_tarea(request, id):
     tarea = get_object_or_404(Tareas, id=id)
     tarea.delete()
     return redirect('lista_tareas')
+
+
   
 
 

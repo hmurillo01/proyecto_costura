@@ -1,0 +1,145 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    /* Variables de estilo */
+}
+
+body {
+    background: rgb(183, 221, 228);
+}
+
+/* Estilos para el formulario */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+}
+
+/* Estilos para los campos de texto al pasar el ratón sobre ellos */
+.form-control:hover {
+    border-color: #beafaf;
+}
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
+}
+
+/* Estilos para el título del formulario */
+.form-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el botón de enviar del formulario */
+.form-container button[type="submit"] {
+    background-color: #c0c0c0;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #a1a7a1;
+}
+
+/* Estilos para el fondo de color */
+.bg-color {
+    background-color: #f5f6f7;
+}
+
+/* Estilos y ajuste del contenedor para la lista de tareas */
+.task-list-container {
+    margin: 0 20px; /* Agregar margen a los lados */
+}
+
+/* Estilos y ajuste del contenedor para la cuadrícula */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    overflow: hidden; /* Oculta el desbordamiento para que los bordes no se muestren fuera del contenedor */
+    max-width: max-content; /* Ajusta el ancho del contenedor al máximo del contenido */
+}
+
+.grid-item {
+    background-color: #9c9c9c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #0a0a0a;  
+}
+
+.grid-item h2 {
+    font-size: 16px; /* Tamaño de fuente relativo */
+    margin-bottom: 10px; /* Ajustar el espaciado entre elementos */
+}
+
+.grid-item p {
+    font-size: px; /* Tamaño de fuente relativo */
+    margin-bottom: 10px; /* Ajustar el espaciado entre elementos */
+}
+
+.grid-item:nth-child(3n) {
+    margin-right: 0;
+}
+
+/* Estilo para las líneas de la cuadrícula */
+.grid-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Estilos adicionales según sea necesario */
+
+/* Estilos para los botones de las tareas */
+.task-buttons {
+    margin-top: 10px; /* Espacio entre los botones y el contenido de la tarea */
+}
+
+.btn-modify,
+.btn-delete {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-modify:hover,
+.btn-delete:hover {
+    background-color: #0056b3;
+}
+
+.task-list-container h1 {
+    text-align: center;
+    margin-bottom: 20px; /* Ajusta el valor según sea necesario */
+}
+
+.task-list-container ul {
+    list-style-type: square; /* Cambia "disc" por el tipo de viñeta que prefieras */
+}

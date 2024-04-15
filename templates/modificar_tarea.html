@@ -1,10 +1,9 @@
-<!-- En tu archivo modificar_tarea.html -->
+{% extends "layouts/app.html" %}
+{% block title %}Modificar tarea{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% block content %}
+<div class="form-container">
     <title>Modificar Tarea</title>
 </head>
 <body>
@@ -14,5 +13,4 @@
         {{ form.as_p }}
         <button type="submit">Guardar Cambios</button>
     </form>
-</body>
-</html>
+{% endblock %}

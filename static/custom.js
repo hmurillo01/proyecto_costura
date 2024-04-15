@@ -1,4 +1,4 @@
-codigo_js = 
+/* codigo_js = 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('crear_costurera_form').addEventListener('submit', function() {
         // Reinicia los valores de los campos del formulario
@@ -8,6 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('id_fecha_nacimiento').value = '';
         document.getElementById('id_direccion').value = '';
     });
-});
+}); */
 
 

@@ -8,9 +8,10 @@
 
 
   <title>{% block title %}{% endblock %}</title>
-  <script>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+ {% comment %}  <script>
         {{ codigo_js | safe }}
-    </script>
+    </script> {% endcomment %}
   
 
 

@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Crear Fábrica</title>
-</head>
-<body>
+{% extends "layouts/app.html" %}
+{% block title %}Fabrica{% endblock %}
+
+
+{% block content %}
+<div class="form-container">
     <h1>Crear Fábrica</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Guardar</button>
     </form>
-</body>
-</html>
+    {% endblock %}
