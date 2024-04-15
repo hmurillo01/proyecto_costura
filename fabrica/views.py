@@ -78,7 +78,7 @@ def modificar_tarea(request, id):
             return redirect('lista_tareas')  # Redireccionar a la lista de tareas
     else:
         form = TareaForm(instance=tarea)
-    return render(request, 'modificar_tarea.html', {'form': form})
+    return render(request, 'modificar_tarea.html', {'form': form})  
 
 def eliminar_tarea(request, id):
     tarea = get_object_or_404(Tareas, id=id)
