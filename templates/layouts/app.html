@@ -12,6 +12,7 @@
   <script>
     { { codigo_js | safe } }
   </script> {% endcomment %}
+
 </head>
 
 <body>
@@ -39,6 +40,19 @@
     {% block content %}{% endblock %}
   </div>
 
+=======
+      <li class="navbar-item"><a href="{% url 'crear_tarea' %}" class="navbar-link">Registro de Tareas</a></li>
+      <li class="navbar-item"><a href="{% url 'lista_tareas' %}" class="navbar-link">Listar Tareas</a></li>
+      <li class="navbar-item"><a href="{% url 'crear_estado' %}" class="navbar-link">Crear Estado</a></li>
+      <li class="navbar-item"><a href="{% url 'crear_fabrica' %}" class="navbar-link">Crear Fábrica</a></li>
+      <li class="navbar-item"><a href="{% url 'crear_costurera' %}" class="navbar-link">Costureras</a></li>
+      <!-- Agrega más opciones del CRUD según sea necesario -->
+      <li class="navbar-item"><a href="{% url 'index' %}" class="navbar-link">Regresar a Index</a></li>
+    </ul>
+  </nav>
+
+  {% block content %}{% endblock %}
+>>>>>>> 439e333801904bf3a41c8645e17c6e510822f72a
   <footer class="footer">
     <div class="footer-info">
       <span>Nombre: Henry Murillo</span>
