@@ -55,11 +55,12 @@ class EstadoForm(forms.ModelForm):
 class CostureraForm(forms.ModelForm):
     class Meta:
         model = Costureras
-        fields = ['identificacion', 'nombre', 'apellido', 'fecha_nacimiento', 'direccion']
+        fields = ['identificacion', 'nombre', 'apellido','genero', 'fecha_nacimiento', 'direccion']
         widgets = {
             'identificacion': forms.TextInput(attrs={'class': 'form-control bg-color','autocomplete': 'off'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control bg-color','autocomplete': 'off'}),
             'apellido': forms.TextInput(attrs={'class': 'form-control bg-color','autocomplete': 'off'}),
+            'genero': forms.Select(attrs={'class': 'form-control bg-color'}),
             'fecha_nacimiento': forms.DateInput(attrs={'class': 'form-control bg-color', 'type': 'date'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control bg-color','autocomplete': 'off'}),
         }

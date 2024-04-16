@@ -10,7 +10,15 @@
 }
 
 body {
-    background: rgb(183, 221, 228);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el contenido ocupe al menos toda la altura de la ventana */
+    margin: 0; /* Asegura que no haya margen adicional en el cuerpo */
+}
+
+/* Estilo para el contenido principal */
+.main-content {
+    flex-grow: 1; /* Permite que el contenido principal crezca para llenar el espacio restante */
 }
 
 /* Estilos para el formulario */
@@ -24,7 +32,6 @@ body {
     background-color: #f0f0f0;
 }
 
-/* Estilos para los campos de texto al pasar el ratón sobre ellos */
 .form-control:hover {
     border-color: #beafaf;
 }
@@ -39,14 +46,12 @@ body {
     font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
 }
 
-/* Estilos para el título del formulario */
 .form-container h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Estilos para el botón de enviar del formulario */
 .form-container button[type="submit"] {
     background-color: #c0c0c0;
     color: black;
@@ -68,18 +73,17 @@ body {
     background-color: #f5f6f7;
 }
 
-/* Estilos y ajuste del contenedor para la lista de tareas */
+/* Estilos para el lista de tareas */
 .task-list-container {
-    margin: 0 20px; /* Agregar margen a los lados */
+    margin: 0 20px;
 }
 
-/* Estilos y ajuste del contenedor para la cuadrícula */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    overflow: hidden; /* Oculta el desbordamiento para que los bordes no se muestren fuera del contenedor */
-    max-width: max-content; /* Ajusta el ancho del contenedor al máximo del contenido */
+    overflow: hidden;
+    max-width: max-content;
 }
 
 .grid-item {
@@ -91,31 +95,28 @@ body {
 }
 
 .grid-item h2 {
-    font-size: 16px; /* Tamaño de fuente relativo */
-    margin-bottom: 10px; /* Ajustar el espaciado entre elementos */
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .grid-item p {
-    font-size: px; /* Tamaño de fuente relativo */
-    margin-bottom: 10px; /* Ajustar el espaciado entre elementos */
+    font-size: px;
+    margin-bottom: 10px;
 }
 
 .grid-item:nth-child(3n) {
     margin-right: 0;
 }
 
-/* Estilo para las líneas de la cuadrícula */
 .grid-container::after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Estilos adicionales según sea necesario */
-
 /* Estilos para los botones de las tareas */
 .task-buttons {
-    margin-top: 10px; /* Espacio entre los botones y el contenido de la tarea */
+    margin-top: 10px;
 }
 
 .btn-modify,
@@ -137,9 +138,93 @@ body {
 
 .task-list-container h1 {
     text-align: center;
-    margin-bottom: 20px; /* Ajusta el valor según sea necesario */
+    margin-bottom: 20px;
 }
 
 .task-list-container ul {
-    list-style-type: square; /* Cambia "disc" por el tipo de viñeta que prefieras */
+    list-style-type: square;
+}
+
+/* Estilos para el menú horizontal */
+.navbar {
+    background-color: #92a8aa;
+    padding: 10px;
+    text-align: right;
+    font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.navbar-item {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.navbar-link {
+    color: #131313;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar-link:hover {
+    background-color: #555555;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.submenu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.submenu a:hover {
+    background-color: #ddd;
+}
+
+.navbar-item:hover .submenu {
+    display: block;
+
+/* Estilos para el footer */
+.footer {
+    background-color: #92a8aa; /* Color de fondo del footer */
+    color: #131313; /* Color del texto del footer */
+    padding: 20px; /* Espaciado interno del footer */
+    text-align: center; /* Alineación del texto al centro */
+    width: 100%; /* Ocupa el ancho completo de la página */
+}
+
+/* Estilos para la información del footer */
+.footer-info {
+    display: flex; /* Muestra los elementos en línea */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas si no caben en una sola */
+}
+
+.footer-info span {
+    margin-right: 20px; /* Espacio entre cada línea de texto */
+}
+
+.footer-info span:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento */
+}
+
+/* Estilos para el formulario de crear costurera */
+.form-crear-costurera {
+    margin-bottom: 120px;
 }
