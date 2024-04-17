@@ -289,11 +289,23 @@ body {
     text-align: center; /* Alinea la imagen al centro horizontalmente */
     margin: 0 auto; /* Centra horizontalmente el contenedor de la imagen */
 }
+@keyframes moveUpDown {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 
 /* Estilos para la imagen */
 .imagen-container img {
     max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
     height: auto; /* Mantiene la proporción de la imagen */
+    animation: moveUpDown 3s ease infinite; /* Aplica la animación a la imagen */
 }
 
 /* Estilos para el formulario de contacto */
