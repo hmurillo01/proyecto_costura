@@ -8,51 +8,35 @@
 
   <title>{% block title %}{% endblock %}</title>
   <link rel="stylesheet" href="{% static 'styles.css' %}">
-  {% comment %}
-  <script>
-    { { codigo_js | safe } }
-  </script> {% endcomment %}
-
 </head>
 
 <body>
   <nav class="navbar">
     <ul class="navbar-menu">
-        <li class="navbar-item">
-            <a href="#" class="navbar-link">Configuracón</a>
-            <ul class="submenu">
-              <li><a href="{% url 'index' %}">Inicio</a></li>
-                <li><a href="{% url 'crear_tarea' %}">Crear Tarea</a></li>
-                <li><a href="{% url 'lista_tareas' %}">Listar Tareas</a></li>
-                <li><a href="{% url 'crear_estado' %}">Crear Estado</a></li>
-                <li><a href="{% url 'crear_fabrica' %}">Crear Fábrica</a></li>
-                <li><a href="{% url 'crear_costurera' %}">Crear Costurera</a></li>
-                <!-- Agrega más opciones del CRUD según sea necesario -->
-            </ul>
-        </li>
-        <li class="navbar-item"><a href="#" class="navbar-link">Contactanos</a></li>
-        <li class="navbar-item"><a href="#" class="navbar-link">Nosotros</a></li>
-        <li class="navbar-item"><a href="#" class="navbar-link">Información</a></li>
-    </ul>
-</nav>
-
-  <div class="main-content">
-    {% block content %}{% endblock %}
-  </div>
-
-=======
-      <li class="navbar-item"><a href="{% url 'crear_tarea' %}" class="navbar-link">Registro de Tareas</a></li>
-      <li class="navbar-item"><a href="{% url 'lista_tareas' %}" class="navbar-link">Listar Tareas</a></li>
-      <li class="navbar-item"><a href="{% url 'crear_estado' %}" class="navbar-link">Crear Estado</a></li>
-      <li class="navbar-item"><a href="{% url 'crear_fabrica' %}" class="navbar-link">Crear Fábrica</a></li>
-      <li class="navbar-item"><a href="{% url 'crear_costurera' %}" class="navbar-link">Costureras</a></li>
-      <!-- Agrega más opciones del CRUD según sea necesario -->
-      <li class="navbar-item"><a href="{% url 'index' %}" class="navbar-link">Regresar a Index</a></li>
+      <li class="navbar-item">
+        <a href="{% url 'index' %}" class="navbar-link">Inicio</a>
+      </li>
+      <li class="navbar-item">
+        <a href="#" class="navbar-link">Gestor de Tareas</a>
+        <ul class="submenu">
+          <li><a href="{% url 'crear_tarea' %}">Crear Tarea</a></li>
+          <li><a href="{% url 'lista_tareas' %}">Listar Tareas</a></li>
+          <li><a href="{% url 'crear_estado' %}">Crear Estado</a></li>
+          <li><a href="{% url 'crear_fabrica' %}">Crear Fábrica</a></li>
+          <li><a href="{% url 'crear_costurera' %}">Crear Costurera</a></li>
+          <!-- Agrega más opciones del CRUD según sea necesario -->
+        </ul>
+      </li>
+      <li class="navbar-item"><a href="#" class="navbar-link">Nosotros</a></li>
+      <li class="navbar-item"><a href="#" class="navbar-link">Información</a></li>
+      <li class="navbar-item"><a href="{% url 'contactanos' %}">Contactanos</a></li><!-- Agrega más elementos de menú aquí -->
     </ul>
   </nav>
 
-  {% block content %}{% endblock %}
->>>>>>> 439e333801904bf3a41c8645e17c6e510822f72a
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+
   <footer class="footer">
     <div class="footer-info">
       <span>Nombre: Henry Murillo</span>

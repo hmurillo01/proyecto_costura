@@ -3,8 +3,34 @@ from .models import Tareas
 from django.http import HttpResponse
 from django.contrib import messages 
 from django.contrib.auth.views import LoginView
+from django.core.mail import send_mail
 from .forms import TareaForm,FabricaForm,EstadoForm,CostureraForm, Costureras
 
+def contactanos(request):
+    # Puedes agregar lógica adicional aquí si es necesario
+    return render(request, 'contactanos.html')
+  
+def enviar_correo(request):
+    if request.method == 'POST':
+        # Procesar el formulario y enviar el correo electrónico
+        nombre = request.POST.get('nombre')
+        correo = request.POST.get('correo')
+        mensaje = request.POST.get('mensaje')
+
+        # Lógica para enviar el correo electrónico
+        send_mail(
+            'Mensaje de contacto',
+            f'Nombre: {nombre}\nCorreo: {correo}\nMensaje: {mensaje}',
+            'tu_correo@example.com',
+            ['destinatario@example.com'],
+            fail_silently=False,
+        )
+
+        # Redirigir o mostrar un mensaje de éxito
+        return render(request, 'exito.html')
+
+    # Si el método de la solicitud no es POST, redirigir o manejarlo de otra manera
+    return render(request, 'error.html')
 
 def index(request):
     # Aquí puedes incluir cualquier lógica necesaria para la página de inicio
