@@ -9,7 +9,7 @@ Contactanos
 <div class="contactanos-container">
     <div class="form-container">
         <h2>Contactanos</h2>
-        <form class="contact-form" action="{% url 'enviar_correo' %}" method="POST">
+        <form class="contact-form" action="{% url 'enviar_correo' %}" method="POST" autocomplete="off">
             {% csrf_token %}
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required><br>

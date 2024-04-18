@@ -5,13 +5,23 @@ Portada
 {% endblock %}
 
 {% block content %}
+{% load static %}
+
 <header>
     <h1 class="title">Gestión de Tareas textil</h1>
 </header>
 <main>
-    <section>
-        
+    <section class="fabrica-section">
+        <div class="fabrica-info-left">
+            <h2>Misión</h2>
+            <p>Aquí va tu misión...</p>
+            <h2>Visión</h2>
+            <p>Aquí va tu visión...</p>
+        </div>
+        <div class="fabrica-info-right">
+            <img src="{% static 'fabrica.png' %}" alt="Imagen de la fábrica">
+        </div>
     </section>
 </main>
-
 {% endblock %}
+

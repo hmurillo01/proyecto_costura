@@ -65,6 +65,9 @@ class CostureraForm(forms.ModelForm):
             'direccion': forms.TextInput(attrs={'class': 'form-control bg-color','autocomplete': 'off'}),
         }
 
+# Agregamos un id al formulario
+        attrs = {'id': 'costurera-form'}
+
     def clean_identificacion(self):
         identificacion = self.cleaned_data['identificacion']
         if Costureras.objects.filter(identificacion=identificacion).exists():

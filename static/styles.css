@@ -12,14 +12,30 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Asegura que el contenido ocupe al menos toda la altura de la ventana */
-    margin: 0; /* Asegura que no haya margen adicional en el cuerpo */
-    position: relative; /* Añadir posición relativa para el body */
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
 }
 
-/* Estilo para el contenido principal */
 .main-content {
     flex-grow: 1;
+}
+
+/* Estilos para la sección de la fábrica */
+.fabrica-section {
+    display: flex;
+}
+
+.fabrica-info-left,
+.fabrica-info-right {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.fabrica-info-right img {
+    width: 100%;
+    height: auto;
 }
 
 /* Estilos para el formulario */
@@ -37,7 +53,6 @@ body {
     border-color: #beafaf;
 }
 
-/* Estilos para el contenedor del formulario */
 .form-container {
     max-width: 500px;
     margin: 0 auto;
@@ -74,7 +89,6 @@ body {
     background-color: #f5f6f7;
 }
 
-/* Estilos para el lista de tareas */
 /* Estilos para la lista de tareas */
 .task-list-container {
     margin: 0 20px;
@@ -116,7 +130,6 @@ body {
     clear: both;
 }
 
-/* Estilos para los botones de las tareas */
 .task-buttons {
     margin-top: 10px;
 }
@@ -153,8 +166,8 @@ body {
     padding: 10px;
     text-align: right;
     font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
-    text-align: right; /* Alinea el contenido a la derecha */
-    font-family: "Gill Sans Extrabold", Helvetica, sans-serif; /* Tipo de letra agradable al usuario */
+    text-align: right;
+    font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
 }
 
 .navbar-menu {
@@ -171,7 +184,7 @@ body {
 
 .navbar-link {
     color: #131313;
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    text-decoration: none;
     padding: 10px;
     border-radius: 5px;
     transition: background-color 0.3s;
@@ -209,8 +222,8 @@ body {
 }
 
 .navbar-item {
-    display: inline-block; /* Para que los elementos del menú se muestren en línea */
-    margin-left: 10px; /* Espaciado entre elementos del menú */
+    display: inline-block;
+    margin-left: 10px;
 }
 
 .navbar-item:hover .submenu {
@@ -219,43 +232,42 @@ body {
     visibility: visible;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
+
 .navbar-link {
-    color: #131313; /* color del texto del menu*/
+    color: #131313;
     text-decoration: none;
     padding: 10px;
-    border-radius: 5px; /* Añade esquinas redondeadas a los enlaces */
-    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+    border-radius: 5px;
 }
 
 .navbar-link:hover {
-    background-color: #555555; /* Cambia el color de fondo al pasar el ratón sobre el enlace */
+    background-color: #555555;
 }
 
 /* Estilos para el footer */
 .footer {
-    background-color: #92a8aa; /* Color de fondo del footer */
-    color: #131313; /* Color del texto del footer */
-    padding: 20px; /* Espaciado interno del footer */
-    text-align: center; /* Alineación del texto al centro */
-    position: absolute; /* Cambiar a posición absoluta */
-    bottom: 0; /* Lo coloca al fondo de la página */
-    width: 100%; /* Ocupa el ancho completo de la página */
+    background-color: #92a8aa;
+    color: #131313;
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Estilos para la información del footer */
 .footer-info {
-    display: flex; /* Muestra los elementos en línea */
-    justify-content: center; /* Centra horizontalmente los elementos */
-    justify-content: space-around; /* Distribuye uniformemente los elementos a lo largo del contenedor */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas si no caben en una sola */
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .footer-info span {
-    margin-right: 20px; /* Espacio entre cada línea de texto */
+    margin-right: 20px;
 }
 
 .footer-info span:last-child {
-    margin-right: 0; /* Elimina el margen derecho del último elemento */
+    margin-right: 0;
 }
 
 /* Estilos para el formulario de crear costurera */
@@ -267,28 +279,26 @@ body {
     text-align: center;
 }
 
-/* Estilos para el contenedor principal */
 .contactanos-container {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Alinea verticalmente los elementos */
+    align-items: center;
 }
 
-/* Estilos para el contenedor del formulario */
 .form-container {
-    width: 45%; /* Ancho del contenedor del formulario */
-    padding: 20px; /* Espaciado interno del contenedor */
-    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    width: 45%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* Estilos para el contenedor de la imagen */
 .imagen-container {
-    width: 45%; /* Ancho del contenedor de la imagen */
-    padding: 20px; /* Espaciado interno del contenedor */
-    box-sizing: border-box; /* Incluye el padding en el ancho total */
-    text-align: center; /* Alinea la imagen al centro horizontalmente */
-    margin: 0 auto; /* Centra horizontalmente el contenedor de la imagen */
+    width: 45%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0 auto;
 }
+
 @keyframes moveUpDown {
     0% {
       transform: translateY(0);
@@ -299,13 +309,12 @@ body {
     100% {
       transform: translateY(0);
     }
-  }
+}
 
-/* Estilos para la imagen */
 .imagen-container img {
-    max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    animation: moveUpDown 3s ease infinite; /* Aplica la animación a la imagen */
+    max-width: 100%;
+    height: auto;
+    animation: moveUpDown 3s ease infinite;
 }
 
 /* Estilos para el formulario de contacto */
@@ -354,3 +363,47 @@ body {
 .contact-form button[type="submit"]:hover {
     background-color: #0056b3; /* Color de fondo al pasar el ratón */
 }
+
+/* Estilos para la modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+}
+
+/* Estilos para el contenido de la modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px; /* Esquinas redondeadas */
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el botón de cerrar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+

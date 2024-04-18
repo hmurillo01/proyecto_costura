@@ -5,7 +5,7 @@
 {% block content %}
 <div class="form-container">
     <h1>Crear Fábrica</h1>
-    <form method="post">
+    <form method="post"  id= "fabrica-form">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Guardar</button>

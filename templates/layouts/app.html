@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <script src="{% static 'custom.js' %}"></script>
   <title>{% block title %}{% endblock %}</title>
   <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
@@ -47,6 +47,14 @@
     </div>
     <div>© 2024 Proyecto Costura</div>
   </footer>
+  
+  <!-- Modal para mensaje de registro exitoso -->
+  <div id="modal-message" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Registro exitoso</p>
+    </div>
+  </div>
 </body>
 
 </html>

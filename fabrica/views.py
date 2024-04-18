@@ -52,6 +52,7 @@ def crear_costurera(request):
     # Si el formulario se ha enviado con éxito o es una solicitud GET, 
     # renderiza un nuevo formulario limpio
     return render(request, 'crear_costurera.html', {'form': form})
+
   
   #Modificar costureras
 def modificar_costurera(request, identificacion):

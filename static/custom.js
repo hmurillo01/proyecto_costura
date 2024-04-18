@@ -11,3 +11,46 @@ document.addEventListener('DOMContentLoaded', function() {
 }); */
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("costurera-form");
+    var modal = document.getElementById("modal-message");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Limpia los campos del formulario
+        form.reset();
+
+        // Muestra la modal con el mensaje de "Registro exitoso"
+        modal.style.display = "block";
+
+        // Cierra la modal después de 3 segundos
+        setTimeout(function() {
+            modal.style.display = "none";
+        }, 2000);
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("fabrica-form");
+    var modal = document.getElementById("modal-message");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Limpia los campos del formulario
+        form.reset();
+
+        // Muestra la modal con el mensaje de "Registro exitoso"
+        modal.style.display = "block";
+
+        // Cierra la modal después de 3 segundos
+        setTimeout(function() {
+            modal.style.display = "none";
+        }, 3000);
+    });
+});
+
+
+
