@@ -44,8 +44,8 @@ def crear_costurera(request):
         form = CostureraForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, '¡Costurera creada con éxito!') 
-            #return redirect('lista_costureras')
+            # messages.success(request, '¡Costurera creada con éxito!') 
+            return redirect('crear_costurera')
     else:
         form = CostureraForm()
 
@@ -89,8 +89,8 @@ def crear_fabrica(request):
     if request.method == 'POST':
         form = FabricaForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('lista_fabricas')
+          form.save()
+          return HttpResponse("Se creo la fabrica")
     else:
         form = FabricaForm()
     return render(request, 'crear_fabrica.html', {'form': form})

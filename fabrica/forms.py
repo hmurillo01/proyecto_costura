@@ -27,7 +27,7 @@ class TareaForm(forms.ModelForm):
 class FabricaForm(forms.ModelForm):
     class Meta:
         model = Fabrica
-        fields = ['nit', 'nombre', 'direccion', 'costura']
+        fields = ['nit', 'nombre', 'direccion','costura']
         widgets = {
             'nit': forms.TextInput(attrs={'class': 'form-control','autocomplete': 'off', 'placeholder': 'Ingrese el NIT'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control','autocomplete': 'off', 'placeholder': 'Ingrese el nombre'}),
@@ -40,12 +40,12 @@ class FabricaForm(forms.ModelForm):
         #En este código, estamos obteniendo el queryset con los nombres y apellidos de las costureras y 
         #luego formateando cada tupla como una cadena de "nombre apellido". 
         #Luego, establecemos estas cadenas formateadas como las opciones del campo "costura".
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        queryset = Costureras.objects.all().values_list('nombre', 'apellido')
-        formatted_choices = [(f"{nombre} {apellido}", f"{nombre} {apellido}") for nombre, apellido in queryset]
-        self.fields['costura'].choices = formatted_choices
-
+'''     def __init__(self, *args, **kwargs):
+      super().__init__(*args, **kwargs)
+      queryset = Costureras.objects.all().values_list('nombre', 'apellido')
+      formatted_choices = [(f"{nombre} {apellido}", f"{nombre} {apellido}") for nombre, apellido in queryset]
+      self.fields['costura'].choices = formatted_choices
+ '''
 class EstadoForm(forms.ModelForm):
     class Meta:
         model = Estado

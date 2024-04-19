@@ -1,13 +1,16 @@
 {% extends "layouts/app.html" %}
+{% load static %}
 {% block title %}Fabrica{% endblock %}
 
 
 {% block content %}
 <div class="form-container">
     <h1>Crear Fábrica</h1>
-    <form method="post"  id= "fabrica-form">
+    <form method="post" id="fabrica-form" action="{% url 'crear_fabrica' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Guardar</button>
     </form>
-    {% endblock %}
+{% endblock %}
+
+

@@ -10,7 +10,7 @@
     {% for tarea in tareas %}
     <div class="grid-item">
         
-     <ul>
+    <ul>
         <p>Tarea #  {{ tarea.id }}</p>
       <li><p>Estado: {{ tarea.estado }}</p></li>
       <li><p>Cantidad de prendas: {{ tarea.cant_prendas }}</p></li>
@@ -23,7 +23,7 @@
       <div class="task-buttons">
         <a href="{% url 'modificar_tarea' tarea.id %}" class="btn-modify">Modificar</a>
         <a href="{% url 'eliminar_tarea' tarea.id %}" class="btn-delete">Eliminar</a>
-     
+  
     </div>
 </div>
     {% endfor %}

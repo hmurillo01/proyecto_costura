@@ -8,7 +8,7 @@
 <div class="form-container">
     <h1>Crear Costurera</h1>
 
-    <form method="post" id="costurera-form">
+    <form method="post" id="costurera-form" action="{% url 'crear_costurera' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Guardar</button>

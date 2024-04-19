@@ -12,45 +12,71 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    var form = document.getElementById("costurera-form");
-    var modal = document.getElementById("modal-message");
+    const form = document.getElementById("costurera-form");
+    const modal = document.getElementById("modal-message");
 
     form.addEventListener("submit", function(event) {
         event.preventDefault();
 
-        // Limpia los campos del formulario
-        form.reset();
+        // Enviar el formulario de manera asíncrona con AJAX
+        fetch(form.action, {
+            method: form.method,
+            body: new FormData(form)
+        })
+        .then(response => {
+            if (response.ok) {
+                // Muestra la modal con el mensaje de "Registro exitoso"
+                modal.style.display = "block";
 
-        // Muestra la modal con el mensaje de "Registro exitoso"
-        modal.style.display = "block";
-
-        // Cierra la modal después de 3 segundos
-        setTimeout(function() {
-            modal.style.display = "none";
-        }, 2000);
+                // Cierra el modal después de 5 segundos
+                setTimeout(function() {
+                    modal.style.display = "none";
+                    form.reset();
+                }, 5000);
+            } else {
+                // Manejar errores de respuesta del servidor
+                console.error('Error al enviar el formulario');
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar el formulario:', error);
+        });
     });
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    var form = document.getElementById("fabrica-form");
-    var modal = document.getElementById("modal-message");
+
+/* document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("fabrica-form");
+    const modal = document.getElementById("modal-message");
 
     form.addEventListener("submit", function(event) {
         event.preventDefault();
 
-        // Limpia los campos del formulario
-        form.reset();
+        // Enviar el formulario de manera asíncrona con AJAX
+        fetch(form.action, {
+            method: form.method,
+            body: new FormData(form)
+        })
+        .then(response => {
+            if (response.ok) {
+                // Muestra la modal con el mensaje de "Registro exitoso"
+                modal.style.display = "block";
 
-        // Muestra la modal con el mensaje de "Registro exitoso"
-        modal.style.display = "block";
-
-        // Cierra la modal después de 3 segundos
-        setTimeout(function() {
-            modal.style.display = "none";
-        }, 3000);
+                // Cierra el modal después de 5 segundos
+                setTimeout(function() {
+                    modal.style.display = "none";
+                    form.reset();
+                }, 5000);
+            } else {
+                // Manejar errores de respuesta del servidor
+                console.error('Error al enviar el formulario');
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar el formulario:', error);
+        });
     });
-});
-
+}); */
 
 

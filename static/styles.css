@@ -96,10 +96,11 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr ;
     gap: 20px;
     overflow: hidden;
     max-width: max-content;
+    
 }
 
 .grid-item {
@@ -108,6 +109,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 2px solid #0a0a0a;  
+  
 }
 
 .grid-item h2 {
@@ -128,6 +130,13 @@ body {
     content: "";
     display: table;
     clear: both;
+}
+
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Define las columnas de la cuadrícula */
+    gap: 20px; /* Espacio entre los elementos */
+    justify-content: center; /* Centra los elementos en la cuadrícula */
 }
 
 .task-buttons {
