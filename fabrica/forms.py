@@ -1,5 +1,6 @@
 from django import forms
 from .models import Tareas,Fabrica,Costureras,Estado
+from django.contrib.auth.forms import AuthenticationForm
 
 class TareaForm(forms.ModelForm):
     class Meta:
@@ -68,9 +69,47 @@ class CostureraForm(forms.ModelForm):
 # Agregamos un id al formulario
         attrs = {'id': 'costurera-form'}
 
+    #def clean_identificacion(self):
+        #identificacion = self.cleaned_data['identificacion']
+        #if Costureras.objects.filter(identificacion=identificacion).exists():
+        #    raise forms.ValidationError('Ya existe una costurera con este número de identificación.')
+        #return identificacion 
+    
+
+
+class CustomAuthenticationForm(AuthenticationForm):
+    identificacion = forms.CharField(label="Número de Identificación")
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget = forms.HiddenInput()  # Oculta el campo de nombre de usuario
+
+    def clean(self):
+        cleaned_data = super().clean()
+        identificacion = cleaned_data.get('identificacion')
+        if identificacion:
+            try:
+                costurera = Costureras.objects.get(identificacion=identificacion)
+                cleaned_data['username'] = costurera.pk  # Utiliza el ID de la costurera como nombre de usuario
+            except Costureras.DoesNotExist:
+                raise forms.ValidationError("Número de identificación incorrecto.")
+        return cleaned_data
+
+
+class CustomLoginForm(forms.Form):
+    identificacion = forms.CharField(label="Número de Identificación")
+
     def clean_identificacion(self):
-        identificacion = self.cleaned_data['identificacion']
-        if Costureras.objects.filter(identificacion=identificacion).exists():
-            raise forms.ValidationError('Ya existe una costurera con este número de identificación.')
-        return identificacion 
-        
+        identificacion = self.cleaned_data.get('identificacion')
+        if identificacion:
+            try:
+                costurera = Costureras.objects.get(identificacion=identificacion)
+                return str(costurera.identificacion)  # Devuelve la identificación como cadena
+            except Costureras.DoesNotExist:
+                raise forms.ValidationError("Número de identificación incorrecto.")
+        else:
+            raise forms.ValidationError("Ingrese un número de identificación.")
+
+    def login(self, request):
+        identificacion = self.cleaned_data.get('identificacion')
+        request.session['costurera_identificacion'] = identificacion  # Almacena la ide
