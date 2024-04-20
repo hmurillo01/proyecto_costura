@@ -2,15 +2,13 @@
 
 from django.urls import path
 from . import views
-from .views import CustomLoginView
-from .views import custom_login
+
+
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('contactanos/', views.contactanos, name='contactanos'),
     path('enviar_correo/', views.enviar_correo, name='enviar_correo'),
-    path('login/', CustomLoginView.as_view(), name='login'),
-    path('login2/', custom_login, name='login'),
     path('listar_tareas/', views.lista_tareas, name='lista_tareas'),
     path('crear_estado/', views.crear_estado, name='crear_estado'),
     path('crear_tareas/', views.crear_tarea, name='crear_tarea'),

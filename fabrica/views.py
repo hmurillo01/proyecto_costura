@@ -136,17 +136,3 @@ class CustomLoginView(LoginView):
         return redirect('index')
 
 
-def custom_login(request):
-    if request.method == 'POST':
-        form = CustomLoginForm(request.POST)
-        if form.is_valid():
-            form.login(request)  # Almacena la identificación en la sesión
-            identificacion = form.cleaned_data.get('identificacion')
-            user = authenticate(request, username=identificacion, password=identificacion)
-            if user is not None:
-                login(request, user)
-                return redirect('index')  # Redirige al index después del inicio de sesión exitoso
-    else:
-        form = CustomLoginForm()
-
-    return render(request, 'login.html', {'form': form})
