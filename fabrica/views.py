@@ -80,7 +80,7 @@ def crear_fabrica(request):
         form = FabricaForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("Se creó la fábrica")
+            return redirect('crear_fabrica')
     else:
         form = FabricaForm()
     return render(request, 'crear_fabrica.html', {'form': form})
