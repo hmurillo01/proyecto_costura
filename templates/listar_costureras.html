@@ -1,14 +1,46 @@
 {% extends "layouts/app.html" %}
-
+{% load static %}
 {% block title %}Listar Costureras{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>Listado de Costureras</h1>
-        <ul>
+<div class="container">
+    <h1>Listado de Costureras</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Identificación</th>
+                <th>Nombre</th>
+                <th>Eliminar</th>
+                <th>Modificar Tarea</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for costurera in costureras %}
-                <li>{{ costurera.nombre }} {{ costurera.apellido }}</li>
+            <tr>
+                <td>{{ costurera.identificacion }}</td>
+                <td>{{ costurera.nombre }}</td>
+                <td>
+                    {% if costurera.tareas_set.all %}
+                        <!-- Muestra el mensaje si la costurera tiene tareas asignadas -->
+                        Costurera con tarea asignada
+                    {% else %}
+                        <!-- Botón para eliminar costurera si no está asignada a ninguna tarea -->
+                        <form action="{% url 'eliminar_costurera' costurera.identificacion %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if costurera.tareas_set.all %}
+                        <!-- Botón para ir a modificar tarea si está asignada a una tarea -->
+                        <a href="{% url 'modificar_tarea' costurera.tareas_set.first.id %}" class="btn btn-primary">Modificar Tarea</a>
+                    {% endif %}
+                </td>
+            </tr>
             {% endfor %}
-        </ul>
-    </div>
+        </tbody>
+    </table>
+</div>
 {% endblock %}
+

@@ -3,7 +3,6 @@
 {% load static %}
 {% block title %}Costurera{% endblock %}
 
-
 {% block content %}
 <div class="form-container">
     <h1>Crear Costurera</h1>
@@ -11,6 +10,15 @@
     <form method="post" id="costurera-form" action="{% url 'crear_costurera' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
+
+    <!-- Contenedor para los botones y centrado -->
+    <div class="text-center mt-3">
+        <!-- Botón para redirigir a listar_costureras.html -->
+        <a href="{% url 'listar_costureras' %}" class="btn btn-secondary">Listar Costureras</a>
+    </div>
+</div>
 {% endblock %}
+
+

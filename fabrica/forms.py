@@ -15,6 +15,8 @@ class TareaForm(forms.ModelForm):
         'costurera': forms.Select(attrs={'class': 'form-control bg-color'}),
         'descripcion': forms.Textarea(attrs={'class': 'form-control bg-color','placeholder': 'Ingrese descripción bien detallada','autocomplete': 'off'})
         }
+        
+    
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -22,6 +24,7 @@ class TareaForm(forms.ModelForm):
         self.fields['fecha_fin'].label = 'Fecha de finalización'
         self.fields['costurera'].label = 'Nombre de  costurera'
         self.fields['fabrica'].label = 'Nombre de la fábrica'
+        
 
         
 
@@ -72,11 +75,11 @@ class CostureraForm(forms.ModelForm):
 # Agregamos un id al formulario
         attrs = {'id': 'costurera-form'}
 
-    #def clean_identificacion(self):
-        #identificacion = self.cleaned_data['identificacion']
-        #if Costureras.objects.filter(identificacion=identificacion).exists():
-        #    raise forms.ValidationError('Ya existe una costurera con este número de identificación.')
-        #return identificacion 
+    def clean_identificacion(self):
+        identificacion = self.cleaned_data['identificacion']
+        if Costureras.objects.filter(identificacion=identificacion).exists():
+            raise forms.ValidationError('Ya existe una costurera con este número de identificación.')
+        return identificacion 
     
 
 
@@ -113,6 +116,3 @@ class CustomLoginForm(forms.Form):
         else:
             raise forms.ValidationError("Ingrese un número de identificación.")
 
-    def login(self, request):
-        identificacion = self.cleaned_data.get('identificacion')
-        request.session['costurera_identificacion'] = identificacion  # Almacena la ide

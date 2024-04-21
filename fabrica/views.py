@@ -8,6 +8,7 @@ from .models import Tareas
 from .forms import CustomLoginForm
 
 
+
 def contactanos(request):
     # Puedes agregar lógica adicional aquí si es necesario
     return render(request, 'contactanos.html')
@@ -71,6 +72,7 @@ def eliminar_costurera(request, identificacion):
     costurera = get_object_or_404(Costureras, identificacion=identificacion)
     if request.method == 'POST':
         costurera.delete()
+        return redirect('listar_costureras')  # Redirige a la vista de listar costureras
     return render(request, 'eliminar_costurera.html', {'costurera': costurera})
 
 def crear_fabrica(request):
@@ -136,3 +138,17 @@ class CustomLoginView(LoginView):
         return redirect('index')
 
 
+def custom_login(request):
+    if request.method == 'POST':
+        form = CustomLoginForm(request.POST)
+        if form.is_valid():
+            form.login(request)  # Almacena la identificación en la sesión
+            identificacion = form.cleaned_data.get('identificacion')
+            user = authenticate(request, username=identificacion, password=identificacion)
+            if user is not None:
+                login(request, user)
+                return redirect('index')  # Redirige al index después del inicio de sesión exitoso
+    else:
+        form = CustomLoginForm()
+
+    return render(request, 'login.html', {'form': form})
