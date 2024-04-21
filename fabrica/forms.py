@@ -51,6 +51,9 @@ class EstadoForm(forms.ModelForm):
     class Meta:
         model = Estado
         fields = ['nombre']
+        widgets =  {
+          'nombre':forms.TextInput(attrs={'autocomplete': 'off'})
+        }
 
         
 class CostureraForm(forms.ModelForm):
